@@ -36,4 +36,22 @@ update employee_payroll set gender = 'F' where name = 'Terisa';
 update employee_payroll set gender = 'M' where name = 'Bill';
 update employee_payroll set gender = 'M' where name = 'charlie';
 
+UC4 - Ability to retrieve all the  employee payroll data that is  added to payroll service  database
+
+select * from employee_payroll;
+
+UC5 Ability to retrieve salary data for a particular  employee as well as 
+all employees who have  joined in a particular data range from the  payroll service database 
+
+select salary from employee_payroll where name = 'Bill';
+select * from employee_payroll where start between cast('2019-01-01' as date) and date(now());
+
+
+UC6 - Ability to add Gender to Employee  Payroll Table and Update the Rows to  reflect the correct Employee Gender
+
+alter table employee_payroll add gender char(1) after name;
+update employee_payroll set gender = 'F' where name = 'Terisa';
+update employee_payroll set gender = 'M' where name = 'Bill';
+update employee_payroll set gender = 'M' where name = 'charlie';
+
 
