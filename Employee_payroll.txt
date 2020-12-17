@@ -5,3 +5,35 @@ show databases;
 use payroll_Service;
 select database();
 
+UC2 - Ability to create a employee payroll table  in the payroll service database to  
+manage employee payrolls 
+
+create table employee_payroll(
+id int unsigned not null auto_increment,
+name varchar(150) not null,
+salary double not null,
+start date not null,
+primary key(id));
+
+
+show tables;
+describe employee_payroll;
+
+select * from employee_payroll;
+
+UC3 - Ability to create employee  payroll data in the payroll  service database as part of  CRUD Operation 
+
+insert into employee_payroll (name,salary,start) values
+('Bill', 1000000.000, '2018-01-03'),
+('Terisa', 2000000.000, '2019-07-13'),
+('charlie', 3000000.000, '2020-05-21');
+
+select salary from employee_payroll where name = 'Bill';
+select * from employee_payroll where start between cast('2019-01-01' as date) and date(now());
+
+alter table employee_payroll add gender char(1) after name;
+update employee_payroll set gender = 'F' where name = 'Terisa';
+update employee_payroll set gender = 'M' where name = 'Bill';
+update employee_payroll set gender = 'M' where name = 'charlie';
+
+
